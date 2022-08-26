@@ -24,6 +24,8 @@ jobs:
       - name: Setup Volta, Node and NPM
         uses: volta-cli/action@v2.0.1
       - run: npm ci
+      - name: Install dependencies for xvfb-action and VS Code
+        run: apt update && apt install -y libasound2 libgbm1 libgtk-3-0 libnss3 sudo
       - name: Test with VS Code ${{ matrix.vscode-version }}
         uses: GabrielBB/xvfb-action@v1
         env:
